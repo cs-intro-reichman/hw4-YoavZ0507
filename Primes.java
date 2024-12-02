@@ -20,6 +20,7 @@ public class Primes {
     
         j++;
        }
+       System.out.println("Prime numbers up to " + f+ ":");
 
        int t=0;
        int count=0;
@@ -32,6 +33,7 @@ public class Primes {
         t++;
 
        }
+       
        System.out.println("there are "+ count + " primes between 2 and "+ f+ ".("+(int)( (double)count/(double)f*100) +"% are primes)" );
     }
 
