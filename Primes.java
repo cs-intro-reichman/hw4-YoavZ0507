@@ -34,7 +34,7 @@ public class Primes {
 
        }
        
-       System.out.println("there are "+ count + " primes between 2 and "+ f+ ".("+(int)( (double)count/(double)f*100) +"% are primes)" );
+       System.out.println("there are "+ count + " primes between 2 and "+ f+ "("+(int)( (double)count/(double)f*100) +"% are primes)" );
     }
 
 
