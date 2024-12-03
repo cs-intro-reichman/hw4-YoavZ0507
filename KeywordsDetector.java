@@ -80,7 +80,7 @@ public class KeywordsDetector {
         for (int t=0; t< keywords.length;t++){
             String str2=lowerCase(keywords[t]);
             if(contains(str1, str2)==true){
-                System.out.println(str1);
+                System.out.println(sentences[i]);
                 break;
             
             }
