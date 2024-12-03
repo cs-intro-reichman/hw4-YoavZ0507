@@ -42,10 +42,22 @@ public class MyString {
         boolean contains= false;
         str1= lowerCase(str1);
         str2=lowerCase(str2);
+
+        if (str2.length() == 0) {
+            return true;
+        }
+
+        if (str1.length() < str2.length()) {
+            return false;
+        }
+
+
+
+
         if(str1.length()==0 || str2.length()==0){
             contains= false;
         }else{
-        for(int i=0;i<str1.length();i++){
+        for(int i=0;i<str1.length()-str2.length();i++){
             if(str1.charAt(i)==str2.charAt(0)){
                 contains=true;
                 for(int j=1;j<str2.length();j++){
