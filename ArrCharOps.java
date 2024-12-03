@@ -13,6 +13,7 @@ public class ArrCharOps {
         System.out.println(lastIndexOf(arr1, 'l'));
         System.out.println(concat(arr1, arr2));
         System.out.println(subArray(arr2, 2, 9));
+        
         System.out.println(compareTo("abcd", "abcd"));
         System.out.println(compareTo("abc", "abcd"));
         System.out.println(compareTo("abw", "abcd"));
@@ -36,46 +37,103 @@ public class ArrCharOps {
     /** Returns the char value at the specified index. Assume that the array is non-empty.
      */
     public static char charAt(char[] arr, int index) {
-        // Replace the following statement with your code
-        return 0;
+     char at= arr[index] ;
+
+
+        return at;
     }
 
     /** If the two arrays have the same value in every index, 
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return false;
+     boolean equal= false ;
+     if (arr1.length==0 && arr2.length==0){
+        equal=true;
+       
+     }else if(arr1.length==0 || arr2.length==0){
+            equal= false;
+     }else{
+        for(int i=0;i<arr1.length;i++){
+            for(int j=0;j<arr2.length;j++){
+                if(charAt(arr1,i)==charAt(arr2,j)){
+                    equal=true;
+                    break;
+                } else{
+                    equal=false;
+                }
+                if (equal=false){
+                break;
+                }
+            }
+        }
+
+     }
+        return equal;
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
      *  If no such character is found, returns -1.
      */
     public static int indexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
-        return -1;
+        int index=0;
+        for(int i=0;i<arr.length-1;i++){
+            if(charAt(arr,i)==ch){
+                index=i;
+                break;
+            }else{
+                index=-1;
+            }
+
+        }
+        return index;
     }
 
     /** Same as indexOf(char[], char), but starts the search in the given index.
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
-        // Replace the following statement with your code
-        return -1;
+        int index=0;
+        for(int i=fromIndex;i<arr.length-1;i++){
+            if(charAt(arr,i)==ch){
+                index=i;
+                break;
+            }else{
+                index=-1;
+            }
+
+        }
+        return index;
     }
 
     /** Returns the index within the given arr of the last occurrence of the given character.
      *  If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
-        // Replace the following statement with your code
-        return -1;
+        int index=0;
+        for(int i=arr.length-1;i>=0;i--){
+            if(charAt(arr,i)==ch){
+                index=i;
+                break;
+            }else{
+                index=-1;
+            }
+
+        }
+        return index;
     }
+    
 
     /* Returns an array which is the concatanation of the two given arrays.
     */
     public static char[] concat(char[] arr1, char[] arr2) {
-        // Replace the following statement with your code
-        return null;
+        char[] concat= new char[arr1.length+arr2.length];
+        for (int i=0;i<arr1.length;i++){
+            concat[i]=arr1[i];
+        }
+        for(int j=0;j<arr2.length;j++){
+            concat[arr1.length+j]= arr2[j];
+        }
+        return concat;
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
@@ -84,8 +142,19 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        // Replace the following statement with your code
-        return null;
+      char[] subArray= new char[endIndex-beginIndex];
+      int j=0;
+      int i=beginIndex;
+        while (j<subArray.length) {
+            
+                subArray[j]=arr[i];   
+                i++;
+                j++;
+            }
+       
+        
+
+        return subArray;
     }
 
      /** Returns a single integer that represents the given array. This integer is sometimes 
@@ -96,8 +165,20 @@ public class ArrCharOps {
      *  The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        // Replace the following statement with your code
-        return 0;
+       long hashCode=0;
+       
+        if(arr.length==0){
+            hashCode=0;
+        }else{
+            for(int i=0;i<arr.length;i++){
+                for(int n=arr.length-1;n>=0;n--){
+                    hashCode+= charAt(arr,i)*Math.pow(7.0, n);
+                    break;
+                }
+            }
+
+        }
+        return hashCode;
     }
 
     /**
@@ -107,7 +188,7 @@ public class ArrCharOps {
      * Characters are compared one by one from left to right, using their numeric Unicode values,
         as follows:
      * 1. If two characters at the same position in both strings are different,
-     *    the string with the smaller character is considered lexicographically smaller.
+     *    thet string wih the smaller character is considered lexicographically smaller.
      * 2. If all characters in the shorter string match the corresponding characters
      *    in the longer string, the shorter string is considered lexicographically smaller.
      * 3. If both strings have the same characters and the same length, they are considered equal.
@@ -126,7 +207,110 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
-        // Replace the following statement with your code
-        return 0;
+        int ans=0;
+        if(str1.length()==str2.length()){
+        
+        boolean equal=false;
+        int i =0;
+        int j =0;
+        while (i<str1.length()) {
+            if(str1.charAt(i)==str2.charAt(j)){
+                equal=true;
+                i++;
+                j++;
+
+            } else{
+                equal=false;
+                break;
+            }
+        }
+                if (str1.charAt(i)>str2.charAt(j)){
+                    ans= 1;
+                } else if(str1.charAt(i)<str2.charAt(j)){
+                    ans= -1;
+                }
+            
+            
+        
+        if(equal=true){
+            ans=0;
+        } 
+
+        
+
+
+     } else if(str1.length()>str2.length()){
+        boolean equal=false;
+        int i =0;
+        int j =0;
+        while (j<str2.length()) {
+            if(str1.charAt(i)==str2.charAt(j)){
+                equal=true;
+                i++;
+                j++;
+
+            } else{
+                equal=false;
+                break;
+            }
+        }
+        if(equal=false){
+
+                if (str1.charAt(i)>str2.charAt(j)){
+                    ans= 1;
+                } else if(str1.charAt(i)<str2.charAt(j)){
+                    ans= -1;
+                }
+            
+
+     } else if(equal=true){
+        ans=1;
+     }
+
+        
+    }else if(str1.length()<str2.length()){
+        boolean equal=false;
+        int i =0;
+        int j =0;
+        while (i<str1.length()) {
+            if(str1.charAt(i)==str2.charAt(j)){
+                equal=true;
+                i++;
+                j++;
+
+            } else{
+                equal=false;
+                break;
+
+            }
+        }
+        if(equal=false){
+                if (str1.charAt(i)>str2.charAt(j)){
+                    ans= 1;
+                } else if(str1.charAt(i)<str2.charAt(j)){
+                    ans= -1;
+                }
+            }
+            
+
+      else if(equal==true){
+        ans=-1;
+     }
+    }
+     
+  
+if(str1.length()==0 || str2.length()==0){
+    ans=-2;
+}
+
+
+
+return ans;
     }
 }
+
+    
+
+
+
+
