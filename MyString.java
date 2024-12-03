@@ -7,13 +7,19 @@ public class MyString {
         System.out.println("lowercase : " + lowerCase("lowercase"));
 
         System.out.println("Testing contains:");
-        System.out.println(contains("unhappy", "happy")); // true
-        System.out.println(contains("happy", "unhappy")); // false
-        System.out.println(contains("historical", "story")); // false
-        System.out.println(contains("psychology", "psycho")); // true
-        System.out.println(contains("personality", "son")); // true
+        System.out.println(contains("baba yaga", "baba")); // true
+        System.out.println(contains("baba yaga", "")); // false
+        System.out.println(contains("baba yaga", "John Wick is the baba yaga")); // false
+        System.out.println(contains("baba yaga", "Yaga")); // true
+        System.out.println(contains("baba yaga", "babayaga")); // true
         System.out.println(contains("personality", "dad")); // false
         System.out.println(contains("resignation", "sign")); // true
+
+        //boolean test1 = MyString.contains("baba yaga", "baba");
+        //boolean test2 = MyString.contains("baba yaga", "");
+       // boolean test3 = !MyString.contains("baba yaga", "John Wick is the baba yaga");
+       // boolean test4 = !MyString.contains("baba yaga", "Yaga");
+       // boolean test5 = !MyString.contains("baba yaga", "babayaga");
     }
 
     /** Returns the lowercase version of the given string. */
@@ -34,6 +40,8 @@ public class MyString {
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
         boolean contains= false;
+        str1= lowerCase(str1);
+        str2=lowerCase(str2);
         if(str1.length()==0 || str2.length()==0){
             contains= false;
         }else{
@@ -48,12 +56,16 @@ public class MyString {
                     break;
                  }
                 }
+                if(contains==true){
+                    break;
+                } 
             }
                
             }
-        }
         
+        }
         return contains;
     }
-}
 
+    
+}
