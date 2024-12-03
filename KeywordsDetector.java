@@ -49,7 +49,7 @@ public class KeywordsDetector {
         if(str1.length()==0 || str2.length()==0){
             contains= false;
         }else{
-        for(int i=0;i<str1.length()- str2.length();i++){
+        for(int i=0;i<=str1.length()- str2.length();i++){
             if(str1.charAt(i)==str2.charAt(0)){
                 contains=true;
                 for(int j=1;j<str2.length();j++){
@@ -82,8 +82,7 @@ public class KeywordsDetector {
             if(contains(str1, str2)==true){
                 System.out.println(str1);
                 break;
-            }else{
-                t++;
+            
             }
             }
             }
